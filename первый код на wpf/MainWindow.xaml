@@ -1,0 +1,174 @@
+﻿<Window x:Class="первый_код_на_wpf.MainWindow"
+         xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:первый_код_на_wpf"
+        mc:Ignorable="d"
+        Title="Калькулятор" Height="400" Width="500" >
+    <Window.Resources>
+        <SolidColorBrush x:Key="mouseOverColor" />
+    </Window.Resources>
+
+    <Grid x:Name="MainRoot"  >
+
+        <TextBox MinWidth="100" HorizontalAlignment="Center" HorizontalContentAlignment="Right" FontSize="30" FontWeight="Medium"  Text="10"   x:Name="textLabel" 
+                     Margin="0,0,0,310" Padding="3" KeyDown="KeyEvents" KeyUp="KeyEvents" BorderBrush="Black"
+                     PreviewTextInput="TextInputEvent"  Width="490" Height="50"/>
+        <Border BorderBrush="Gray" BorderThickness="1" 
+                    Margin="1,50,1,263"
+                    HorizontalAlignment="Stretch"
+                    >
+            <TextBlock x:Name="textSave" TextAlignment="Right" FontSize="30"   FontWeight="Medium" Foreground="Gray" Margin="-6,10,0,0" Padding="3" Width="490" Height="60" />
+        </Border>
+        <TextBlock Width="100" Height="15" Text="Last result:" Margin="0 0 380 250" Foreground="Gray" />
+        <Button Height="50" Width="68" Margin="-430,0,0,100" BorderBrush="#dddd"  >1</Button>
+        <Button Height="50" Width="68" Margin="-293,0,0,100"  Content="2"  >
+            <Button.Style>
+                <Style TargetType="{x:Type Button}">
+
+                    <Setter Property="Background" Value="#dddddd"/>
+                    <Setter Property="Template">
+                        <Setter.Value>
+                            <ControlTemplate TargetType="{x:Type Button}">
+                                <Border Background="{TemplateBinding Background}">
+                                    <ContentPresenter HorizontalAlignment="Center" VerticalAlignment="Center"/>
+                                </Border>
+                            </ControlTemplate>
+                        </Setter.Value>
+                    </Setter>
+                    <Style.Triggers>
+                        <Trigger Property="IsMouseOver" Value="True">
+                            <Setter Property="Background">
+                                <Setter.Value>
+                                    <LinearGradientBrush StartPoint="0,0" EndPoint="1,1">
+                                        <GradientStop Color="Yellow" Offset="0.0" />
+                                        <GradientStop Color="Red" Offset="0.25" />
+                                        <GradientStop Color="Blue" Offset="0.75" />
+                                        <GradientStop Color="LimeGreen" Offset="1.0" />
+                                    </LinearGradientBrush>
+                                </Setter.Value>
+                            </Setter>
+                        </Trigger>
+                    </Style.Triggers>
+                </Style>
+            </Button.Style>
+        </Button>
+        <Button Height="50" Width="68" Margin="-156,0,0,100" BorderBrush="#dddd" >3</Button>
+        <Button Height="50" Width="68" Margin="-430,0,0,0" Content="4" >
+            <Button.Style>
+                <Style TargetType="{x:Type Button}">
+                    <Setter Property="Background" Value="#dddddd"/>
+                    <Setter Property="Template">
+                        <Setter.Value>
+                            <ControlTemplate TargetType="{x:Type Button}">
+                                <Border Background="{TemplateBinding Background}">
+                                    <ContentPresenter HorizontalAlignment="Center" VerticalAlignment="Center"/>
+                                </Border>
+                            </ControlTemplate>
+                        </Setter.Value>
+                    </Setter>
+                    <Style.Triggers>
+                        <Trigger Property="IsMouseOver" Value="True">
+                            <Setter Property="Background">
+                                <Setter.Value>
+                                    <LinearGradientBrush StartPoint="0,0" EndPoint="1,1">
+                                        <GradientStop Color="Yellow" Offset="0.0" />
+                                        <GradientStop Color="Red" Offset="0.25" />
+                                        <GradientStop Color="Blue" Offset="0.75" />
+                                        <GradientStop Color="LimeGreen" Offset="1.0" />
+                                    </LinearGradientBrush>
+                                </Setter.Value>
+                            </Setter>
+                        </Trigger>
+                    </Style.Triggers>
+                </Style>
+            </Button.Style>
+        </Button>
+        <Button Height="50" Width="68" BorderBrush="#dddd" Margin="-293,0,0,0" >5</Button>
+        <Button Height="50" Width="68"  Content="6" Margin="-156,0,0,0">
+            <Button.Style>
+                <Style TargetType="{x:Type Button}">
+                    <Setter Property="Background" Value="#dddddd"/>
+                    <Setter Property="Template">
+                        <Setter.Value>
+                            <ControlTemplate TargetType="{x:Type Button}">
+                                <Border Background="{TemplateBinding Background}">
+                                    <ContentPresenter HorizontalAlignment="Center" VerticalAlignment="Center"/>
+                                </Border>
+                            </ControlTemplate>
+                        </Setter.Value>
+                    </Setter>
+                    <Style.Triggers>
+                        <Trigger Property="IsMouseOver" Value="True">
+                            <Setter Property="Background">
+                                <Setter.Value>
+                                    <LinearGradientBrush StartPoint="0,0" EndPoint="1,1">
+                                        <GradientStop Color="Yellow" Offset="0.0" />
+                                        <GradientStop Color="Red" Offset="0.25" />
+                                        <GradientStop Color="Blue" Offset="0.75" />
+                                        <GradientStop Color="LimeGreen" Offset="1.0" />
+                                    </LinearGradientBrush>
+                                </Setter.Value>
+                            </Setter>
+                        </Trigger>
+                    </Style.Triggers>
+                </Style>
+            </Button.Style>
+        </Button>
+        <Button Height="50" Width="68" BorderBrush="#dddd" Margin="-430,0,0,-100" >7</Button>
+        <Button Height="50" Width="68" Content="8" Margin="-293,0,0,-100">
+            <Button.Style>
+                <Style TargetType="{x:Type Button}">
+                    <Setter Property="Background" Value="#dddddd"/>
+                    <Setter Property="Template">
+                        <Setter.Value>
+                            <ControlTemplate TargetType="{x:Type Button}">
+                                <Border Background="{TemplateBinding Background}">
+                                    <ContentPresenter HorizontalAlignment="Center" VerticalAlignment="Center"/>
+                                </Border>
+                            </ControlTemplate>
+                        </Setter.Value>
+                    </Setter>
+                    <Style.Triggers>
+                        <Trigger Property="IsMouseOver" Value="True">
+                            <Setter Property="Background">
+                                <Setter.Value>
+                                    <LinearGradientBrush StartPoint="0,0" EndPoint="1,1">
+                                        <GradientStop Color="Yellow" Offset="0.0" />
+                                        <GradientStop Color="Red" Offset="0.25" />
+                                        <GradientStop Color="Blue" Offset="0.75" />
+                                        <GradientStop Color="LimeGreen" Offset="1.0" />
+                                    </LinearGradientBrush>
+                                </Setter.Value>
+                            </Setter>
+                        </Trigger>
+                    </Style.Triggers>
+                </Style>
+            </Button.Style>
+        </Button>
+        <Button Height="50" Width="68" BorderBrush="#dddd"  Margin="-156,0,0,-100">9</Button>
+        <Button Height="50" Width="68" BorderBrush="#dddd"  Margin="-293,0,0,-200" >0</Button>
+        <Button Height="50" Width="71" BorderBrush="#e422ca" Margin="-16,0,0,100">+</Button>
+        <Button Height="50" Width="71" BorderBrush="#e422ca" Margin="-16,0,0,0" >-</Button>
+        <Button Height="50" Width="71" BorderBrush="#e422ca" Margin="-16,0,0,-100">*</Button>
+        <Button Height="50" Width="71" BorderBrush="#e422ca" Margin="-16,0,0,-200">/</Button>
+        <Button Height="50" Width="68" BorderBrush="#e422ca" Margin="-156,0,0,-200">=</Button>
+        <Button Height="50" Width="71" BorderBrush="#e422ca" Margin="126,0,0,-100">(</Button>
+        <Button Height="50" Width="71"  BorderBrush="#e422ca" Margin="126,0,0,-200">)</Button>
+        <Button Height="50" Width="71"  BorderBrush="#e422ca" Margin="268,0,0,100" >1/x</Button>
+        <Button Height="50" Width="71" BorderBrush="#e422ca" Margin="268,0,0,0">|x|</Button>
+        <Button Height="50" Width="71"  BorderBrush="#e422ca" Margin="126,0,0,100">AC</Button>
+        <Button Height="50" Width="71" Content="sin"  BorderBrush="#e422ca" Margin="410,0,0,100"/>
+        <Button Height="50" Width="71" Content="cos"  BorderBrush="#e422ca" Margin="410,0,0,0"/>
+        <Button Height="50" Width="71" Content="n!"  BorderBrush="#e422ca" Margin="410,0,0,-100"/>
+        <Button Height="50" Width="71" Content="e"  BorderBrush="#e422ca" Margin="410,0,0,-200"/>
+        <Button Height="50" Width="71" Content="x^2"  BorderBrush="#e422ca" Margin="268,0,0,-200"/>
+        <Button Height="50" Width="71" Content="ln"  BorderBrush="#e422ca" Margin="268,0,0,-100" />
+        <Button Height="50" Width="68" BorderBrush="#808080" Background="#C0C0C0" BorderThickness="3" Click="Button_Click_2" Margin="-430,0,0,-200" >Simple</Button>
+        <Button Height="50" Width="71" BorderBrush="#e422ca" Margin="126,0,0,0" RenderTransformOrigin="-0.712,-0.439">del</Button>
+        <Button Height="63" Margin="0 0 0 -316" Click="Button_GitHub">
+            <Image Source="C:\Users\user\Downloads\free-png.ru-688.png" VerticalAlignment="Center" HorizontalAlignment="Center" Height="70" />
+        </Button>
+    </Grid>
+</Window>
